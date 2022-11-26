@@ -5,12 +5,12 @@ import fs from "fs";
 
 const caminho = process.argv;
 
-function imprimeLista(valida, resultado, nomeArquivo = "") {
+async function imprimeLista(valida, resultado, nomeArquivo = "") {
   if (valida) {
     console.log(
       chalk.yellow("lista validada"),
       chalk.black.bgYellow(nomeArquivo),
-      listaValidada(resultado)
+      await listaValidada(resultado)
     );
   } else {
     console.log(
@@ -23,7 +23,7 @@ function imprimeLista(valida, resultado, nomeArquivo = "") {
 
 async function processaTexto(argumentos) {
   const caminho = argumentos[2];
-  const valida = argumentos[3] === "--valida";
+  const valida = argumentos[3] === "valida";
 
   try {
     fs.lstatSync(caminho);
