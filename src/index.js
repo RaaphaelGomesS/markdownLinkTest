@@ -4,7 +4,7 @@ import chalk from "chalk";
 function extrairLinks(texto) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const capturas = [...texto.matchAll(regex)];
-  const resultados = capturas.map(captura => ({[captura[1]]: captura[2] }));
+  const resultados = capturas.map((captura) => ({ [captura[1]]: captura[2] }));
   return resultados.length !== 0 ? resultados : chalk.red("Não possui links");
 }
 
@@ -23,6 +23,6 @@ async function pegaArquivo(caminho) {
   }
 }
 
-pegaArquivo('./arquivos/texto.md');
+pegaArquivo("./arquivos/texto.md");
 
 export default pegaArquivo;
