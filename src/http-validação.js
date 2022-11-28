@@ -1,5 +1,3 @@
-import chalk from "chalk";
-
 function extrairLinks(arr) {
   return arr.map((objeto) => {
     return Object.values(objeto).join();
